@@ -1,0 +1,141 @@
+﻿<Window x:Class="pr17.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pr17"
+        mc:Ignorable="d"
+        Title="Практическая 17" Height="450" Width="800" Icon="/Disk Defragment.ico" ResizeMode="CanMinimize" Loaded="WindowLoaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid IsReadOnly="True" AutoGenerateColumns="False" x:Name="dg" HorizontalAlignment="Center" Height="170" Grid.ColumnSpan="3" Grid.Row="2"  VerticalAlignment="Center" Width="780">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Фамилия" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Surname}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Имя" Width="90">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Name}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Отчество" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding DadsName}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Цех" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Zeh}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Разряд" Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Razryad}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Должность" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Profession}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Дата поступления" Width="110">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding FirstDay, StringFormat=d}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Размер зарплаты" Width="110">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Zp}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Стаж">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Years}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Добавить запись" HorizontalAlignment="Center" Height="45" VerticalAlignment="Center" Width="140" Grid.Column="0" Grid.Row="3" Click="AddClick"/>
+        <Button Content="Редактировать запись" HorizontalAlignment="Center" Height="45" VerticalAlignment="Center" Width="140" Grid.Column="1" Grid.Row="3" Click="ReClick"/>
+        <Button Content="Удалить запись" HorizontalAlignment="Center" Height="45" VerticalAlignment="Center" Width="140" Grid.Column="2" Grid.Row="3" Click="DelClick"/>
+        <GroupBox HorizontalAlignment="Center" Height="90" Header="Фильтр" VerticalAlignment="Center" Width="150" Grid.Column="0" Grid.Row="1">
+            <Grid HorizontalAlignment="Center" Height="70" VerticalAlignment="Center" Width="140">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="filtertb" HorizontalAlignment="Center" Height="30" Text="" VerticalAlignment="Center" Width="130" Grid.Row="0"/>
+                <Button Content="Фильтровать" HorizontalAlignment="Center" Height="30" Grid.Row="1" VerticalAlignment="Center" Width="130" Click="FilterClick"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox HorizontalAlignment="Center" Height="90" Header="Поиск" VerticalAlignment="Center" Width="150" Grid.Column="2" Grid.Row="1">
+            <Grid HorizontalAlignment="Center" Height="70" VerticalAlignment="Center" Width="140">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="findtb" HorizontalAlignment="Center" Height="30" Text="" VerticalAlignment="Center" Width="130" Grid.Row="0"/>
+                <Button Content="Искать" HorizontalAlignment="Center" Height="30" Grid.Row="1" VerticalAlignment="Center" Width="130" Click="FindClick"/>
+            </Grid>
+    </GroupBox>
+        <Menu Grid.ColumnSpan="3" HorizontalAlignment="Center" Height="20" VerticalAlignment="Top" Width="790">
+            <MenuItem Header="Добавить" Click="AddClick"></MenuItem>
+            <Separator Width="10"></Separator>
+            <MenuItem Header="Редактировать" Click="ReClick"></MenuItem>
+            <Separator Width="10"></Separator>
+            <MenuItem Header="Удалить" Click="DelClick"></MenuItem>
+            <Separator Width="10"></Separator>
+            <MenuItem Header="О программе" Click="InfoClick"></MenuItem>
+            <Separator Width="10"></Separator>
+            <MenuItem Header="Выход" Click="ExitClick"></MenuItem>
+        </Menu>
+    </Grid>
+</Window>
