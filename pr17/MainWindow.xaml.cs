@@ -125,24 +125,32 @@ namespace pr17
                 LoadDBInDataGrid();
             }
         }
+        private void sbrosClick(object sender, RoutedEventArgs e)
+        {
+            LoadDBInDataGrid();
+            filtertb.Clear();
+        }
 
         private void FindClick(object sender, RoutedEventArgs e)
         {
-            List<MonthZp> listItem = (List<MonthZp>)dg.ItemsSource;
-            var finded = listItem.Where(p => p.Surname.Contains(findtb.Text) ||
-                p.Name.Contains(findtb.Text) ||
-                p.DadsName.Contains(findtb.Text) ||
-            p.Zeh.Contains(findtb.Text) ||
-            p.Razryad.ToString().Contains(findtb.Text) ||
-            p.Profession.Contains(findtb.Text) ||
-             p.Zp.ToString().Contains(findtb.Text) ||
-             p.Years.ToString().Contains(findtb.Text));
-            if (finded.Count() > 0)
+            if (findtb.Text.IsNullOrEmpty() == false)
             {
-                MonthZp item = finded.First();
-                dg.SelectedItem = item;
-                dg.ScrollIntoView(item);
-                dg.Focus();
+                List<MonthZp> listItem = (List<MonthZp>)dg.ItemsSource;
+                var finded = listItem.Where(p => p.Surname.Contains(findtb.Text) ||
+                    p.Name.Contains(findtb.Text) ||
+                    p.DadsName.Contains(findtb.Text) ||
+                p.Zeh.Contains(findtb.Text) ||
+                p.Razryad.ToString().Contains(findtb.Text) ||
+                p.Profession.Contains(findtb.Text) ||
+                 p.Zp.ToString().Contains(findtb.Text) ||
+                 p.Years.ToString().Contains(findtb.Text));
+                if (finded.Count() > 0)
+                {
+                    MonthZp item = finded.First();
+                    dg.SelectedItem = item;
+                    dg.ScrollIntoView(item);
+                    dg.Focus();
+                }
             }
         }
     }

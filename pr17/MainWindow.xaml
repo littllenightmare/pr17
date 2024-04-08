@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pr17"
         mc:Ignorable="d"
-        Title="Практическая 17" Height="450" Width="800" Icon="/Disk Defragment.ico" ResizeMode="CanMinimize" Loaded="WindowLoaded">
+        Title="Практическая 17" Height="450" Width="810" Icon="/Disk Defragment.ico" ResizeMode="CanMinimize" Loaded="WindowLoaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -125,9 +125,15 @@
                 <TextBox x:Name="findtb" HorizontalAlignment="Center" Height="30" Text="" VerticalAlignment="Center" Width="130" Grid.Row="0"/>
                 <Button Content="Искать" HorizontalAlignment="Center" Height="30" Grid.Row="1" VerticalAlignment="Center" Width="130" Click="FindClick"/>
             </Grid>
-    </GroupBox>
+        </GroupBox>
         <Menu Grid.ColumnSpan="3" HorizontalAlignment="Center" Height="20" VerticalAlignment="Top" Width="790">
             <MenuItem Header="Добавить" Click="AddClick"></MenuItem>
+            <Separator Width="10"></Separator>
+            <MenuItem Header="Искать" Click="FindClick"></MenuItem>
+            <Separator Width="10"></Separator>
+            <MenuItem Header="Фильтровать" Click="FilterClick"></MenuItem>
+            <Separator Width="10"></Separator>
+            <MenuItem Header="Сбросить фильтр" Click="sbrosClick"></MenuItem>
             <Separator Width="10"></Separator>
             <MenuItem Header="Редактировать" Click="ReClick"></MenuItem>
             <Separator Width="10"></Separator>
@@ -137,5 +143,6 @@
             <Separator Width="10"></Separator>
             <MenuItem Header="Выход" Click="ExitClick"></MenuItem>
         </Menu>
+        <Button Content="Сбросить фильтр" HorizontalAlignment="Center" Height="45" VerticalAlignment="Center" Width="140" Grid.Column="1" Grid.Row="1" Click="sbrosClick"/>
     </Grid>
 </Window>

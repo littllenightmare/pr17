@@ -33,10 +33,10 @@ namespace pr17
             if (tbsur.Text.Length == 0) errors.AppendLine("Введите фамилию");
             if (tbname.Text.Length == 0) errors.AppendLine("Введите имя");
             if (tbdadsname.Text.Length == 0) errors.AppendLine("Введите отчество");
-            if (calfd.Text == "") errors.AppendLine("Введите дату рождения");
-            if (Int32.TryParse(tbrazryad.Text, out int b) == false || Convert.ToInt32(tbrazryad.Text)==0) errors.AppendLine("Введите корректный разряд");
-            if (Int32.TryParse(tbyears.Text, out int a) == false || a == 0) errors.AppendLine("Введите корректный стаж");
-            if (Int32.TryParse(tbzp.Text, out a) == false || a == 0) errors.AppendLine("Введите корректную зарплату");
+            if (calfd.Text == "") errors.AppendLine("Введите дату поступления");
+            if (Int32.TryParse(tbrazryad.Text, out int b) == false || b<=0) errors.AppendLine("Введите корректный разряд");
+            if (Int32.TryParse(tbyears.Text, out int a) == false || a <= 0) errors.AppendLine("Введите корректный стаж");
+            if (Int32.TryParse(tbzp.Text, out a) == false || a <= 0) errors.AppendLine("Введите корректную зарплату");
             if (cbprof.Text != "Мастер" && cbprof.Text != "Рабочий" && cbprof.Text != "Помощник") errors.AppendLine("Выберите должность");
             if (cbzeh.Text != "Оловянный" && cbzeh.Text != "Деревянный" && cbzeh.Text != "Пробковый" && cbzeh.Text != "Стеклянный" && cbzeh.Text != "Металлический") errors.AppendLine("Выберите цех");
 
